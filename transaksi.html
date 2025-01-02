@@ -140,8 +140,34 @@
         form button:hover {
             background-color: #003366;
         }
+        #transaksi {
+            padding: 50px 0;
+            background-color: #ffffff;
+        }
 
-        /* Footer */
+        #transaksi h2 {
+            color: #004d99;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+
+        table th {
+            background-color: #004d99;
+            color: white;
+        }
+
         footer {
             background-color: #004d99;
             color: white;
@@ -171,7 +197,7 @@
                 <div class="info">
                     <h3>Baja Ringan</h3>
                     <p>Baja ringan adalah material konstruksi yang terbuat dari baja berkualitas tinggi, ringan, dan tahan lama. Sangat cocok untuk atap rumah, gudang, dan proyek konstruksi lainnya.</p>
-                    <p class="harga">Rp 20.000/m²</p>
+                    <p class="harga">Rp 98.000/btg. 1 pcs = 1btg</p>
                 </div>
             </div>
             <div class="produk-item">
@@ -179,7 +205,7 @@
                 <div class="info">
                     <h3>Baja Koil</h3>
                     <p>Baja koil adalah produk baja yang digulung dan digunakan dalam berbagai aplikasi industri seperti otomotif, pembuatan peralatan, dan konstruksi.</p>
-                    <p class="harga">Rp 15.000/kg minimal pesan 1000kg/1ton</p>
+                    <p class="harga">Rp 15.000.000/ton. 1 pcs = 1 ton</p>
                 </div>
             </div>
         </div>
@@ -187,33 +213,52 @@
     <section id="pemesan">
         <div class="container">
             <h2>Form Pemesanan</h2>
-            <form action="#" method="post">
+            <form id="orderForm" action="#" method="post" onsubmit="return validateForm()">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required placeholder="Masukkan email Anda">
                 
                 <label for="alamat">Alamat Pengiriman:</label>
                 <textarea id="alamat" name="alamat" rows="4" required placeholder="Masukkan alamat lengkap"></textarea>
+                
                 <label for="produk">Varian Produk:</label>
                 <select id="produk" name="produk" required>
                     <option value="">Pilih Produk</option>
                     <option value="baja_ringan">Baja Ringan</option>
                     <option value="baja_koil">Baja Koil</option>
                 </select>
+                
                 <label for="jumlah">Jumlah:</label>
-                <input type="number" id="jumlah" name="jumlah" min="1" required placeholder="Jumlah produk yang dipesan">
+                <input type="number" id="jumlah" name="jumlah" min="1" required placeholder="Jumlah produk yang dipesan per pcs">
 
                 <label for="nomor_pesanan">Nomor Pesanan:</label>
                 <input type="text" id="nomor_pesanan" name="nomor_pesanan" value="" readonly>
                 
+                
                 <button type="submit">Kirim Pemesanan</button>
             </form>
+            <section id="link-daftar-transaksi">
+    <div class="container" style="text-align: center; margin-top: 20px;">
+        <a href="daftar.html" style="text-decoration: none; color: white; background-color: #004d99; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            Lihat Daftar Transaksi
+        </a>
+    </div>
+</section>
         </div>
     </section>
+    <section id="transaksi">
+        <div class="container">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <p>&copy; 2024 Surya Baja. Semua hak dilindungi.</p>
         </div>
     </footer>
+    
     <script>
         function generateRandomOrderNumber() {
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -224,6 +269,6 @@
             return result;
         }
         document.getElementById('nomor_pesanan').value = generateRandomOrderNumber();
-    </script>
-</body>
-</html>
+
+        function validateForm() {
+            const email = document.get
